@@ -3,7 +3,7 @@ import Points from "./sub_components/Points";
 import QuestionTypeHeader from "./QuestionTypeHeader";
 import Container from "./Container";
 import useFetchQuestions from "../hooks/useFetchQuestions";
-import { CLOZE } from "../constants";
+import { CLOZE, SERVER_URL } from "../constants";
 
 const ClozeCreate = () => {
   const { data } = useFetchQuestions(CLOZE);
@@ -95,7 +95,7 @@ const ClozeCreate = () => {
       };
       console.log(requestData);
 
-      const response = await fetch("http://localhost:4000/new/cloze", {
+      const response = await fetch(`${SERVER_URL}/new/cloze`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
